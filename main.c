@@ -10,7 +10,6 @@ int	main(int argc, char **argv)
 
 	argc = 1;
 	i = 1;
-	stack_a = ft_lstnew(0);
 	while (argv[i])
 	{
 		j = 0;
@@ -19,14 +18,13 @@ int	main(int argc, char **argv)
 		{
 			list_aux = ft_lstnew(ft_atoi(no_spaces[j]));
 			ft_lstadd_back(&stack_a, list_aux);
-			//printf("%d", (ft_lstlast(stack_a))->content);
 			j++;
 		}
 		i++;
 	}
 	while (stack_a)
 	{
-		printf("%i", stack_a->content);
+		printf("%i\n", stack_a->content);
 		stack_a = stack_a->next;
 	}
 	return (0);

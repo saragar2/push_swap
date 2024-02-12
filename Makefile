@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = main.c ft_atoi.c ft_lstnew.c ft_split.c ft_lstadd_back.c ft_lstlast.c
+SRCS = main.c ft_atoi.c ft_lstnew.c ft_split.c ft_lstadd_back.c ft_lstlast.c ps_utils.c
 
 CFLAGS = -Wall -Wextra -Werror
 REMOVE = rm -f

@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int ft_atoi(const char *str, int *control)
 {
-	int	nb;
-	int	minus;
+	long int nb;
+	int minus;
 
 	nb = 0;
 	minus = 1;
@@ -24,7 +24,7 @@ int	ft_atoi(const char *str)
 	if (*str == '+' || *str == '-')
 	{
 		if (*(str + 1) == '+' || *(str + 1) == '-')
-			return (0);
+			*control = 1;
 		else if (*str == '-')
 			minus = -1;
 		str++;
@@ -34,5 +34,9 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + (*str - '0');
 		str++;
 	}
+	if (*str && (*str < 48 || *str > 57))
+		*control = 1;
+	if (nb > 2147483647 || nb < -2147483648)
+		*control = 1;
 	return (nb * minus);
 }

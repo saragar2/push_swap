@@ -1,7 +1,6 @@
-#include "libft/libft.h"
+#include "push_swap.h"
 
-t_list	*sa(t_list *a, t_list *b)
+void	sa(t_list **a, t_list **b)
 {
-	a->content = b->content;
-	
+	(*a)->content = (*b)->content;
 }

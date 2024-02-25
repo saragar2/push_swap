@@ -19,5 +19,6 @@ t_list		*ft_lstlast(t_list *lst);
 t_list		*split_args(char **argv);
 void		ps_printf(char *str);
 int			error_cases(char *no_spaces);
+void		sa(t_list **a);
 
 #endif

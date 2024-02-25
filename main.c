@@ -19,11 +19,11 @@ int	error_cases(char *no_spaces)
 
 t_list	*split_args(char **argv)
 {
-	int	i;
-	int j;
+	int		i;
+	int		j;
 	char	**no_spaces;
 	t_list	*list_aux;
-	t_list *stack_a;
+	t_list	*stack_a;
 
 	i = 1;
 	while (argv[i])
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 
 	argc = 1;
 	stack_a = split_args(argv);
+	sa(&stack_a);
 	while (stack_a)
 	{
 		printf("%i\n", stack_a->content);

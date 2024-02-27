@@ -20,5 +20,7 @@ t_list		*split_args(char **argv);
 void		ps_printf(char *str);
 int			error_cases(char *no_spaces);
 void		sa(t_list **a);
+void		sb(t_list **b);
+void		ss(t_list **a, t_list **b);
 
 #endif

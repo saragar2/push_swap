@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int ft_atoi(const char *str, int *control)
+int	ft_atoi(const char *str, int *control)
 {
-	long int nb;
-	int minus;
+	long int	nb;
+	int			minus;
 
 	nb = 0;
 	minus = 1;

@@ -2,15 +2,33 @@
 
 void	sa(t_list **a)
 { 
-	int	aux1;
-	int	aux2;
-	t_list	**aux_l;
+	int	aux;
 
-	aux_l = a;
-	aux1 = (*aux_l)->content;
-	*aux_l = (*aux_l)->next;
-	aux2 = (*aux_l)->content;
-	(*a)->content = aux1;
-	*a = (*a)->next;
-	(*a)->content = aux2;
+	aux = (*a)->next->content;
+	(*a)->next->content = (*a)->content;
+	(*a)->content = aux;
+	write(1, "sa\n", 3);
+}
+
+void	sb(t_list **b)
+{ 
+	int	aux;
+
+	aux = (*b)->next->content;
+	(*b)->next->content = (*b)->content;
+	(*b)->content = aux;
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_list **a, t_list **b)
+{ 
+	int	aux;
+
+	aux = (*a)->next->content;
+	(*a)->next->content = (*a)->content;
+	(*a)->content = aux;
+	aux = (*b)->next->content;
+	(*b)->next->content = (*b)->content;
+	(*b)->content = aux;
+	write(1, "ss\n", 3);
 }

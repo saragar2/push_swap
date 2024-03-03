@@ -7,7 +7,7 @@
 
 typedef struct s_list
 {
-	int			content;
+	int				content;
 	struct s_list	*next;
 }				t_list;
 
@@ -19,8 +19,14 @@ t_list		*ft_lstlast(t_list *lst);
 t_list		*split_args(char **argv);
 void		ps_printf(char *str);
 int			error_cases(char *no_spaces);
+void		free_stack(t_list *a);
 void		sa(t_list **a);
 void		sb(t_list **b);
 void		ss(t_list **a, t_list **b);
+void		pa(t_list **a, t_list **b);
+void		pb(t_list **a, t_list **b);
+void		ra(t_list **a);
+void		ra(t_list **b);
+void		rr(t_list **a, t_list **b);
 
 #endif

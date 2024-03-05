@@ -74,7 +74,9 @@ int	main(int argc, char **argv)
 
 	argc = 1;
 	stack_a = split_args(argv);
-	rr(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	rrr(&stack_a, &stack_b);
 	printf("----STACK A----\n");
 	aux = stack_a;
 	while (aux)
@@ -82,12 +84,13 @@ int	main(int argc, char **argv)
 		printf("%i\n", aux->content);
 		aux = aux->next;
 	}
-	// printf("----STACK B----\n");
-	// while (stack_b)
-	// {
-	// 	printf("%i\n", stack_b->content);
-	// 	stack_b = stack_b->next;
-	// }
+	printf("----STACK B----\n");
+	aux = stack_b;
+	while (aux)
+	{
+		printf("%i\n", aux->content);
+		aux = aux->next;
+	}
 	atexit(leaks);
 	free_stack(stack_a);
 	free_stack(stack_b);

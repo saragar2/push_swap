@@ -30,6 +30,6 @@ void		ra(t_list **b);
 void		rr(t_list **a, t_list **b);
 void		rra(t_list **a);
 void		rra(t_list **b);
-void		rrr(t_list **a, t_list **b);
+void		rrr(t_list **a, t_list **b, int flag);
 
 #endif

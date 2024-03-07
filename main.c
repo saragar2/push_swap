@@ -76,7 +76,9 @@ int	main(int argc, char **argv)
 	stack_a = split_args(argv);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
-	rrr(&stack_a, &stack_b, 0);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	rrr(&stack_a, &stack_b);
 	printf("----STACK A----\n");
 	aux = stack_a;
 	while (aux)

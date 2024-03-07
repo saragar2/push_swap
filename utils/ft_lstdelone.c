@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saragar2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 19:37:02 by saragar2          #+#    #+#             */
-/*   Updated: 2023/10/19 18:35:28 by saragar2         ###   ########.fr       */
+/*   Created: 2023/10/19 19:36:53 by saragar2          #+#    #+#             */
+/*   Updated: 2023/10/19 20:12:02 by saragar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (*lst)
-		ft_lstlast(*lst)-> next = new;
-	else
-		*lst = new;
+	if (lst)
+	{
+		del(lst-> content);
+		free(lst);
+	}
 }

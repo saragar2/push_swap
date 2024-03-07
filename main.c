@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 	t_list	*aux;
 
-	argc = 1;
+	(void)argc;
 	stack_a = split_args(argv);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saragar2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 19:36:53 by saragar2          #+#    #+#             */
-/*   Updated: 2023/10/19 20:12:02 by saragar2         ###   ########.fr       */
+/*   Created: 2023/10/09 19:29:48 by saragar2          #+#    #+#             */
+/*   Updated: 2023/10/09 20:46:01 by saragar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst)
+	while (lst)
 	{
-		del(lst-> content);
-		free(lst);
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
 	}
+	return (NULL);
 }

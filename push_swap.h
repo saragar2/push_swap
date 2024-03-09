@@ -16,20 +16,21 @@ t_list		*ft_lstnew(int content);
 char		**ft_split(char const *s, char c);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 t_list		*ft_lstlast(t_list *lst);
-t_list		*split_args(char **argv);
+t_list		*split_args(char **argv, int *count);
 void		ps_printf(char *str);
 int			error_cases(char *no_spaces);
 void		free_stack(t_list *a);
-void		sa(t_list **a);
-void		sb(t_list **b);
+void		sa(t_list **a, int flag);
+void		sb(t_list **b, int flag);
 void		ss(t_list **a, t_list **b);
 void		pa(t_list **a, t_list **b);
 void		pb(t_list **a, t_list **b);
-void		ra(t_list **a);
-void		ra(t_list **b);
+void		ra(t_list **a, int flag);
+void		ra(t_list **b, int flag);
 void		rr(t_list **a, t_list **b);
 void		rra(t_list **a, int flag);
 void		rra(t_list **b, int flag);
 void		rrr(t_list **a, t_list **b);
+void		two(t_list **s);
 
 #endif

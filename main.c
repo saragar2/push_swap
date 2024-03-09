@@ -18,7 +18,7 @@ int	error_cases(char *no_spaces)
 	return (result);
 }
 
-t_list	*split_args(char **argv)
+t_list	*split_args(char **argv, int *count)
 {
 	int		i;
 	int		j;
@@ -27,6 +27,7 @@ t_list	*split_args(char **argv)
 	t_list	*stack_a;
 
 	i = 1;
+	stack_a = NULL;
 	while (argv[i])
 	{
 		j = 0;
@@ -37,6 +38,7 @@ t_list	*split_args(char **argv)
 			ft_lstadd_back(&stack_a, list_aux);
 			free (no_spaces[j]);
 			j++;
+			(*count)++;
 		}
 		free(no_spaces);
 		i++;
@@ -49,36 +51,18 @@ void leaks()
 	system("leaks -q push_swap");
 }
 
-void	free_stack(t_list *stack)
-{
-	t_list	*aux;
-
-	if (!stack)
-		return ;
-	aux = stack->next;
-	while (stack && stack->next)
-	{
-		free(stack);
-		stack = aux;
-		if (aux->next)
-			aux = aux->next;
-	}
-	free (stack);
-}
 
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+	// t_list	*stack_b;
 	t_list	*aux;
+	int		count;
 
 	(void)argc;
-	stack_a = split_args(argv);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	rrr(&stack_a, &stack_b);
+	count = 0;
+	stack_a = split_args(argv, &count);
+	// two(&stack_a);
 	printf("----STACK A----\n");
 	aux = stack_a;
 	while (aux)
@@ -86,15 +70,14 @@ int	main(int argc, char **argv)
 		printf("%i\n", aux->content);
 		aux = aux->next;
 	}
-	printf("----STACK B----\n");
-	aux = stack_b;
-	while (aux)
-	{
-		printf("%i\n", aux->content);
-		aux = aux->next;
-	}
+	// printf("----STACK B----\n");
+	// aux = stack_b;
+	// while (aux)
+	// {
+	// 	printf("%i\n", aux->content);
+	// 	aux = aux->next;
+	// }
+	printf("COUNT: %i\n", count);
 	atexit(leaks);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	exit(0);
 }

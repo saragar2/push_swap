@@ -19,7 +19,7 @@ void	rra(t_list **a, int flag)
 	}
 	(*a)->content = num;
 	if (flag == 0)
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **b, int flag)
@@ -41,7 +41,7 @@ void	rrb(t_list **b, int flag)
 	}
 	(*b)->content = num;
 	if (flag == 0)
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **a, t_list **b)

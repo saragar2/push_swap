@@ -19,7 +19,6 @@ t_list		*ft_lstlast(t_list *lst);
 t_list		*split_args(char **argv, int *count);
 void		ps_printf(char *str);
 int			error_cases(char *no_spaces);
-void		free_stack(t_list *a);
 void		sa(t_list **a, int flag);
 void		sb(t_list **b, int flag);
 void		ss(t_list **a, t_list **b);
@@ -31,6 +30,14 @@ void		rr(t_list **a, t_list **b);
 void		rra(t_list **a, int flag);
 void		rra(t_list **b, int flag);
 void		rrr(t_list **a, t_list **b);
+void		decide_alg(int count, t_list **a, t_list **b);
 void		two(t_list **s);
+void		three(t_list **s);
+void		four(t_list **a, t_list **b);
+void		five(t_list **a, t_list **b);
+int			inner_sort(t_list **a, t_list **b);
+int			count_list(t_list **stack);
+int			measure(int count);
+void		radix_sort(int  count_a, t_list **a, t_list **b);
 
 #endif

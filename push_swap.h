@@ -37,6 +37,7 @@ void		four(t_list **a, t_list **b);
 void		five(t_list **a, t_list **b);
 int			inner_sort(t_list **a, t_list **b);
 int			count_list(t_list **stack);
+int			max_num(t_list **stack);
 int			measure(int count);
 void		radix_sort(int  count_a, t_list **a, t_list **b);
 

@@ -15,6 +15,22 @@ int	count_list(t_list **stack)
 	return(count);
 }
 
+int	max_num(t_list **stack)
+{
+	t_list	*s;
+	int	max;
+
+	s = *stack;
+	max = s->content;
+	while (s)
+	{
+		if (s->content > max)
+			max = s->content;
+		s = s->next;
+	}
+	return (max);
+}
+
 int	measure(int count)
 {
 	int bits;
@@ -32,7 +48,7 @@ void	radix_sort(int  count_a, t_list **a, t_list **b)
 	int	num;
 
 	i = 0;
-	while (i < measure(count_a))
+	while (i < measure(max_num(a)))
 	{
 		j = 0;
 		while (j < count_a)

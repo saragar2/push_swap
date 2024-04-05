@@ -8,18 +8,16 @@ void	doubled_nums(t_list *a)
 
 	aux = a->next;
 	curr = a;
-	while (curr)
+	while (curr->next)
 	{
 		num = curr->content;
 		while (aux)
 		{
 			if (num == aux->content)
 				error_exit();
+            aux = aux->next;
 		}
-		if (curr->next && aux->next)
-		{
-			curr = curr->next;
-			aux = curr->next;
-		}
+		curr = curr->next;
+		aux = curr->next;
 	}
 }

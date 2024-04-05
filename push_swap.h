@@ -18,6 +18,7 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*split_args(char **argv, int *count);
 void		ps_printf(char *str);
+void        error_exit(void);
 int			error_cases(char *no_spaces);
 void		sa(t_list **a, int flag);
 void		sb(t_list **b, int flag);
@@ -40,5 +41,6 @@ int			count_list(t_list **stack);
 int			max_num(t_list **stack);
 int			measure(int count);
 void		radix_sort(int  count_a, t_list **a, t_list **b);
+void	    doubled_nums(t_list *a);
 
 #endif

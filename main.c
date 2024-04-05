@@ -75,6 +75,7 @@ int	main(int argc, char **argv)
 	(void)argc;
 	count = 0;
 	stack_a = split_args(argv, &count);
+    doubled_nums(stack_a);
 	decide_alg(count, &stack_a, &stack_b);
 	printf("----STACK A----\n");
 	aux = stack_a;

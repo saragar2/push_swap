@@ -41,13 +41,37 @@ int	measure(int count)
 	return (bits);
 }
 
+int    negative_check(t_list **s)
+{
+    int     change;
+    t_list  *aux;
+
+    aux = *s;
+    change = 0;
+    while (aux)
+    {
+        if (aux->content < change)
+            change = aux->content;
+        aux = aux->next;
+    }
+    aux = *s;
+    while (aux && change < 0)
+    {
+        aux->content += change * -1;
+        aux = aux->next;
+    }
+    return (change);
+}
+
 void	radix_sort(int  count_a, t_list **a, t_list **b)
 {
 	int	i;
 	int	j;
+    int change;
 	int	num;
 
 	i = 0;
+    change = negative_check(a);
 	while (i < measure(max_num(a)))
 	{
 		j = 0;
@@ -64,4 +88,6 @@ void	radix_sort(int  count_a, t_list **a, t_list **b)
 			pa(a, b);
 		++i;
 	}
+    if (change < 0)
+        turn_negative(a, change);
 }

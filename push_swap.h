@@ -42,5 +42,7 @@ int			max_num(t_list **stack);
 int			measure(int count);
 void		radix_sort(int  count_a, t_list **a, t_list **b);
 void	    doubled_nums(t_list *a);
+int         negative_check(t_list **s);
+void        turn_negative(t_list **s, int change);
 
 #endif

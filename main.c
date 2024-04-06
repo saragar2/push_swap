@@ -53,7 +53,9 @@ void leaks()
 
 void	decide_alg(int count, t_list **a, t_list **b)
 {
-	if (count == 2)
+	if (count == 1)
+		return;
+	else if (count == 2)
 		two(a);
 	else if (count == 3)
 		three(a);

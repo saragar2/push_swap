@@ -19,14 +19,14 @@ int	ft_atoi(const char *str, int *control)
 
 	nb = 0;
 	minus = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*(str + 1) == '+' || *(str + 1) == '-')
 			*control = 1;
 		else if (*str == '-')
 			minus = -1;
+		if (*(str + 1) == '\0' || *(str + 1) == '\0')
+			*control = 1;
 		str++;
 	}
 	while (*str >= 48 && *str <= 57)
@@ -36,7 +36,7 @@ int	ft_atoi(const char *str, int *control)
 	}
 	if (*str && (*str < 48 || *str > 57))
 		*control = 1;
-	if (nb > 2147483647 || nb < -2147483648)
+	if ((nb * minus) > 2147483647 || (nb * minus) < -2147483648)
 		*control = 1;
 	return (nb * minus);
 }

@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_utils.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saragar2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 18:30:15 by saragar2          #+#    #+#             */
-/*   Updated: 2024/04/07 18:30:17 by saragar2         ###   ########.fr       */
+/*   Created: 2023/09/12 16:23:26 by saragar2          #+#    #+#             */
+/*   Updated: 2023/09/21 19:20:02 by saragar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ps_printf(char *str)
+size_t	ft_strlen(const char *s)
 {
-	while (*str != '\0')
+	size_t	cont;
+
+	cont = 0;
+	while (*s != '\0')
 	{
-		write(2, str, 1);
-		str++;
+		cont ++;
+		s ++;
 	}
+	return (cont);
 }
+/*int	main()
+{
+	const char	ex[] = "hol0\n0--0a";
+
+	printf("%zu", ft_strlen(ex));
+	printf("%zu", strlen(ex));
+}*/

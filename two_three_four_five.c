@@ -69,22 +69,22 @@ int	inner_sort(t_list **a, t_list **b)
 
 void	five(t_list **a, t_list **b)
 {
-	int	max;
-	t_list	*aux;
+	int	num_b;
 
-	aux = *a;
-	while(aux)
+	pb(a, b);
+	four(a, b);
+	num_b = inner_sort(a, b);
+	if (num_b < (*a)->next->next->next->content && num_b > (*a)->next->content)
 	{
-		max = max_num(a);
-		while (aux)
-		{
-			if (aux->content == max)
-				pb(aux, b);
-			else
-				aux = aux->next;
-		}
-		aux = *a;
-	}
-	while (b)
+		rra(a, 0);
 		pa(a, b);
+		ra(a, 0);
+		ra(a, 0);
+		// ra(a, 0);
+	}
+	if (num_b > (*a)->next->next->next->content)
+	{
+		pa(a, b);
+		ra(a, 0);
+	}
 }

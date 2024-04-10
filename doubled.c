@@ -29,7 +29,7 @@ int	check_ordered(t_list *s)
 	t_list	*aux;
 
 	aux = s;
-	while (aux)
+	while (aux->next)
 	{
 		if (aux->content > aux->next->content)
 			return (1);

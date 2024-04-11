@@ -49,7 +49,7 @@ void		two(t_list **s);
 void		three(t_list **s);
 void		four(t_list **a, t_list **b);
 void		five(t_list **a, t_list **b);
-int			inner_sort(t_list **a, t_list **b);
+int			inner_sort(t_list **a, t_list **b, int *flag);
 int			count_list(t_list **stack);
 int			max_num(t_list **stack);
 int			measure(int count);

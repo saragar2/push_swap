@@ -34,35 +34,43 @@ void	three(t_list **s)
 void	four(t_list **a, t_list **b)
 {
 	int	num_b;
+    int flag;
 
+    flag = 0;
 	pb(a, b);
 	three(a);
-	num_b = inner_sort(a, b);
-	if (num_b > (*a)->next->next->content)
+	num_b = inner_sort(a, b, &flag);
+	if (flag == 0 && num_b > (*a)->next->next->content)
 	{
 		pa(a, b);
 		ra(a, 0);
 	}
 }
 
-int	inner_sort(t_list **a, t_list **b)
+int	inner_sort(t_list **a, t_list **b, int *flag)
 {
 	int	num_b;
 
 	num_b = (*b)->content;
 	if (num_b < (*a)->content)
+    {
 		pa(a, b);
+        *flag = 1;
+    }
 	else if (num_b < (*a)->next->content)
 	{
 		pa(a, b);
 		sa(a, 0);
+        *flag = 1;
 	}
 	else if (num_b < (*a)->next->next->content)
 	{
 		rra(a, 0);
+        rra(a, 0);
 		pa(a, b);
-		ra(a, 0);
-		ra(a, 0);
+		rra(a, 0);
+		rra(a, 0);
+        *flag = 1;
 	}
 	return (num_b);
 }
@@ -70,21 +78,25 @@ int	inner_sort(t_list **a, t_list **b)
 void	five(t_list **a, t_list **b)
 {
 	int	num_b;
+    int flag;
 
+    flag = 0;
 	pb(a, b);
 	four(a, b);
-	num_b = inner_sort(a, b);
-	if (num_b < (*a)->next->next->next->content && num_b > (*a)->next->content)
-	{
-		rra(a, 0);
-		pa(a, b);
-		ra(a, 0);
-		ra(a, 0);
-		// ra(a, 0);
-	}
-	if (num_b > (*a)->next->next->next->content)
-	{
-		pa(a, b);
-		ra(a, 0);
-	}
+	num_b = inner_sort(a, b, &flag);
+    if (flag == 0)
+    {
+	    if (num_b < (*a)->next->next->next->content && num_b > (*a)->next->content)
+	    {
+		    rra(a, 0);
+    		pa(a, b);
+    		ra(a, 0);
+    		ra(a, 0);
+    	}
+    	if (num_b > (*a)->next->next->next->content)
+    	{
+    		pa(a, b);
+    		ra(a, 0);
+    	}
+    }
 }

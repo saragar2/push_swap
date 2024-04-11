@@ -102,21 +102,21 @@ int	main(int argc, char **argv)
 	stack_a = split_args(argv, &count);
 	doubled_nums(stack_a);
 	decide_alg(count, &stack_a, &stack_b);
-	// printf("----STACK A----\n");
-	// aux = stack_a;
-	// while (aux)
-	// {
-	// 	printf("%i\n", aux->content);
-	// 	aux = aux->next;
-	// }
-	// printf("----STACK B----\n");
-	// aux = stack_b;
-	// while (aux)
-	// {
-	// 	printf("%i\n", aux->content);
-	// 	aux = aux->next;
-	// }
-	// printf("-------------COUNT: %i\n", count);
+	/* printf("----STACK A----\n");
+	aux = stack_a;
+	while (aux)
+	{
+	    printf("%i\n", aux->content);
+	    aux = aux->next;
+	}
+	printf("----STACK B----\n");
+	aux = stack_b;
+	while (aux)
+	{
+	    printf("%i\n", aux->content);
+	    aux = aux->next;
+	}
+	printf("-------------COUNT: %i\n", count);*/
 	// atexit(leaks);
 	exit(0);
 }

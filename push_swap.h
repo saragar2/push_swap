@@ -52,6 +52,7 @@ void		five(t_list **a, t_list **b);
 int			inner_sort(t_list **a, t_list **b, int *flag);
 int			count_list(t_list **stack);
 int			max_num(t_list **stack);
+int         pos_min_num(t_list **s);
 int			measure(int count);
 void		radix_sort(int count_a, t_list **a, t_list **b);
 void		doubled_nums(t_list *a);

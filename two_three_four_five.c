@@ -12,6 +12,30 @@
 
 #include "push_swap.h"
 
+int pos_min_num(t_list **s)
+{
+    t_list  *aux;
+    int     min;
+    int     pos;
+
+    aux = *s;
+    min = aux->content;
+    pos = 1;
+    while (aux)
+    {
+        if (aux->content < min)
+            min = aux->content;
+        aux = aux->next;
+    }
+    aux = *s;
+    while (aux->content != min)
+    {
+        pos++;
+        aux = aux->next;
+    }
+    return (pos);
+}
+
 void	two(t_list **s)
 {
 	if ((*s)->content > (*s)->next->content)
@@ -20,83 +44,59 @@ void	two(t_list **s)
 
 void	three(t_list **s)
 {
-	if ((*s)->content > (*s)->next->content)
-		sa(s, 0);
-	if ((*s)->next->next->content < (*s)->content)
-		rra(s, 0);
-	else if ((*s)->next->next->content < (*s)->next->content)
-	{
-		rra(s, 0);
-		sa(s, 0);
-	}
+	int max;
+    t_list  *aux;
+
+    aux = *s;
+    max = max_num(&aux);
+    aux = *s;
+    if (aux->content == max)
+        ra(&aux, 0);
+    else if (aux->next->content == max)
+        rra(&aux, 0);
+    if (aux->content > aux->next->content)
+        sa(&aux, 0);
 }
 
-void	four(t_list **a, t_list **b)
+void    four(t_list **a, t_list **b)
 {
-	int	num_b;
-    int flag;
+    int pos;
 
-    flag = 0;
-	pb(a, b);
-	three(a);
-	num_b = inner_sort(a, b, &flag);
-	if (flag == 0 && num_b > (*a)->next->next->content)
-	{
-		pa(a, b);
-		ra(a, 0);
-	}
-}
-
-int	inner_sort(t_list **a, t_list **b, int *flag)
-{
-	int	num_b;
-
-	num_b = (*b)->content;
-	if (num_b < (*a)->content)
+    pos = pos_min_num(a);
+    if (pos == 2)
+        sa(a, 0);
+    else if (pos == 3)
     {
-		pa(a, b);
-        *flag = 1;
-    }
-	else if (num_b < (*a)->next->content)
-	{
-		pa(a, b);
-		sa(a, 0);
-        *flag = 1;
-	}
-	else if (num_b < (*a)->next->next->content)
-	{
-		rra(a, 0);
         rra(a, 0);
-		pa(a, b);
-		rra(a, 0);
-		rra(a, 0);
-        *flag = 1;
-	}
-	return (num_b);
+        rra(a, 0);
+    }
+    else if (pos == 4)
+        rra(a, 0);
+    pb(a, b);
+    three(a);
+    pa(a, b);
 }
 
-void	five(t_list **a, t_list **b)
+void    five(t_list **a, t_list **b)
 {
-	int	num_b;
-    int flag;
+    int pos;
 
-    flag = 0;
-	pb(a, b);
-	four(a, b);
-	num_b = inner_sort(a, b, &flag);
-    if (flag == 0)
+    pos = pos_min_num(a);
+    if (pos == 2)
+        sa(a, 0);
+    else if (pos == 3)
     {
-	    if (num_b < (*a)->next->next->next->content && num_b > (*a)->next->content)
-	    {
-		    rra(a, 0);
-    		pa(a, b);
-    		ra(a, 0);
-    		ra(a, 0);
-    	}
-    	if (num_b > (*a)->next->next->next->content)
-    	{
-    		pa(a, b);
-    		ra(a, 0);
-    	}
+        ra(a, 0);
+        ra(a, 0);
     }
+    if (pos == 4)
+    {
+        rra(a, 0);
+        rra(a, 0);
+    }
+    if (pos == 5)
+        rra(a, 0);
+    pb(a, b);
+    four(a, b);
+    pa(a, b);
 }

@@ -58,11 +58,6 @@ t_list	*split_args(char **argv, int *count)
 	return (stack_a);
 }
 
-// void leaks()
-// {
-// 	system("leaks -q push_swap");
-// }
-
 void	decide_alg(int count, t_list **a, t_list **b)
 {
 	if (check_ordered(*a))
@@ -86,7 +81,6 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	// t_list	*aux;
 	int		count;
 	int		i;
 
@@ -100,23 +94,9 @@ int	main(int argc, char **argv)
 			error_exit();
 	}
 	stack_a = split_args(argv, &count);
+	if (!stack_a)
+		exit(0);
 	doubled_nums(stack_a);
 	decide_alg(count, &stack_a, &stack_b);
-	/* printf("----STACK A----\n");
-	aux = stack_a;
-	while (aux)
-	{
-	    printf("%i\n", aux->content);
-	    aux = aux->next;
-	}
-	printf("----STACK B----\n");
-	aux = stack_b;
-	while (aux)
-	{
-	    printf("%i\n", aux->content);
-	    aux = aux->next;
-	}
-	printf("-------------COUNT: %i\n", count);*/
-	// atexit(leaks);
 	exit(0);
 }

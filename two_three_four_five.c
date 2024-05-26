@@ -42,7 +42,7 @@ void	two(t_list **s)
 		sa(s, 0);
 }
 
-void	three(t_list **s)
+void	three(t_list **s, int count)
 {
 	int		max;
 	t_list	*aux;
@@ -51,14 +51,14 @@ void	three(t_list **s)
 	max = max_num(&aux);
 	aux = *s;
 	if (aux->content == max)
-		ra(&aux, 0);
+		ra(&aux, 0, count);
 	else if (aux->next->content == max)
 		rra(&aux, 0);
 	if (aux->content > aux->next->content)
 		sa(&aux, 0);
 }
 
-void	four(t_list **a, t_list **b)
+void	four(t_list **a, t_list **b, int count)
 {
 	int	pos;
 
@@ -73,11 +73,11 @@ void	four(t_list **a, t_list **b)
 	else if (pos == 4)
 		rra(a, 0);
 	pb(a, b);
-	three(a);
+	three(a, count);
 	pa(a, b);
 }
 
-void	five(t_list **a, t_list **b)
+void	five(t_list **a, t_list **b, int count)
 {
 	int	pos;
 
@@ -86,8 +86,8 @@ void	five(t_list **a, t_list **b)
 		sa(a, 0);
 	else if (pos == 3)
 	{
-		ra(a, 0);
-		ra(a, 0);
+		ra(a, 0, count);
+		ra(a, 0, count);
 	}
 	if (pos == 4)
 	{
@@ -97,6 +97,6 @@ void	five(t_list **a, t_list **b)
 	if (pos == 5)
 		rra(a, 0);
 	pb(a, b);
-	four(a, b);
+	four(a, b, count);
 	pa(a, b);
 }

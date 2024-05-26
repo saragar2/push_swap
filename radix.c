@@ -91,7 +91,7 @@ void	radix_sort(int count_a, t_list **a, t_list **b)
 		{
 			num = (*a)->content;
 			if ((num >> i) & 1)
-				ra(a, 0);
+				ra(a, 0, count_a);
 			else
 				pb(a, b);
 			++j;

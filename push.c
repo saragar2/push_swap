@@ -37,3 +37,18 @@ void	pb(t_list **a, t_list **b)
 	*b = aux;
 	write(1, "pb\n", 3);
 }
+
+int	pb_radix(t_list **a, t_list **b, int count_b)
+{
+	t_list	*aux;
+
+	if (!*a)
+		return (0);
+	aux = *a;
+	*a = (*a)->next;
+	aux->next = *b;
+	*b = aux;
+	write(1, "pb\n", 3);
+	count_b++;
+	return (count_b);
+}

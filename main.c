@@ -14,19 +14,29 @@
 
 void	error_exit(void)
 {
-	ps_printf("Error");
+	ps_printf("Error\n");
 	exit(1);
 }
 
-int	error_cases(char *no_spaces)
+int	error_cases(char **no_spaces, t_list *stack, int j)
 {
 	int	result;
 	int	control;
 
 	control = 0;
-	result = ft_atoi(no_spaces, &control);
+	result = ft_atoi(no_spaces[j], &control);
 	if (control == 1)
+	{
+		free_stack(stack);
+		j = 0;
+		while (no_spaces[j])
+		{
+			free(no_spaces[j]);
+			j++;
+		}
+		free(no_spaces);
 		error_exit();
+	}
 	return (result);
 }
 
@@ -46,7 +56,7 @@ t_list	*split_args(char **argv, int *count)
 		no_spaces = ft_split(argv[i], ' ');
 		while (no_spaces[j])
 		{
-			list_aux = ft_lstnew(error_cases(no_spaces[j]));
+			list_aux = ft_lstnew(error_cases(no_spaces, stack_a, j));
 			ft_lstadd_back(&stack_a, list_aux);
 			free (no_spaces[j]);
 			j++;
@@ -67,11 +77,11 @@ void	decide_alg(int count, t_list **a, t_list **b)
 		else if (count == 2)
 			two(a);
 		else if (count == 3)
-			three(a);
+			three(a, count);
 		else if (count == 4)
-			four(a, b);
+			four(a, b, count);
 		else if (count == 5)
-			five(a, b);
+			five(a, b, count);
 		else
 			radix_sort(count, a, b);
 	}
@@ -81,6 +91,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	// t_list	*aux;
 	int		count;
 	int		i;
 
@@ -94,9 +105,19 @@ int	main(int argc, char **argv)
 			error_exit();
 	}
 	stack_a = split_args(argv, &count);
+	stack_b = 0;
 	if (!stack_a)
 		exit(0);
 	doubled_nums(stack_a);
 	decide_alg(count, &stack_a, &stack_b);
+	// printf("----STACK B----\n");
+	// aux = stack_b;
+	// while (aux)
+	// {
+	//     printf("%i\n", aux->content);
+	//     aux = aux->next;
+	// }
+	free_stack(stack_a);
 	exit(0);
 }
+

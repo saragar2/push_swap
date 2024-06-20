@@ -91,7 +91,6 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	// t_list	*aux;
 	int		count;
 	int		i;
 
@@ -110,14 +109,6 @@ int	main(int argc, char **argv)
 		exit(0);
 	doubled_nums(stack_a);
 	decide_alg(count, &stack_a, &stack_b);
-	// printf("----STACK B----\n");
-	// aux = stack_b;
-	// while (aux)
-	// {
-	//     printf("%i\n", aux->content);
-	//     aux = aux->next;
-	// }
 	free_stack(stack_a);
 	exit(0);
 }
-

@@ -63,14 +63,15 @@ void	doubled_nums(t_list *a)
 	}
 }
 
-void    free_stack(t_list *stack)
+void	free_stack(t_list *stack)
 {
-    t_list  *aux;
-    aux = stack;
-    while (aux)
-    {
-        stack = aux->next;
-        free(aux);
-        aux = stack;
-    }
+	t_list	*aux;
+
+	aux = stack;
+	while (aux)
+	{
+		stack = aux->next;
+		free(aux);
+		aux = stack;
+	}
 }

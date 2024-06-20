@@ -57,6 +57,6 @@ void		doubled_nums(t_list *a);
 int			negative_check(t_list **s);
 void		turn_negative(t_list **s, int change);
 int			check_ordered(t_list *s);
-void    	free_stack(t_list *stack);
+void		free_stack(t_list *stack);
 
 #endif
